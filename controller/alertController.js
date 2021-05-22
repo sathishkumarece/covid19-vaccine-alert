@@ -5,6 +5,7 @@ const Op = db.Sequelize.Op;
 
 module.exports = {
     createAlert : async (req, res)=>{
+        console.log('Entering to create alert');
         const body = req.body;
         let response = {
             data: {},
@@ -22,6 +23,7 @@ module.exports = {
     
     },
     getAllAlert: async() =>{
+        console.log('Entering to getting all alert');
         let response = {
             data: {},
             code: 500,
@@ -30,7 +32,28 @@ module.exports = {
         }
         try{
             let alerts = {}
-            alerts.data = AlertModel.findAll({raw:true});
+            alerts.data = await AlertModel.findAll({raw:true});
+            alerts.code = 200,
+            alerts.message = 'Alerts are retrieved successfully'
+            alerts.status = true;
+            return alerts;
+        }catch (err){
+            console.error(err)
+            return {...response, message: "Error occured during alert creation"};
+        }
+    },
+
+    getAlertByFrequency: async(frequency) =>{
+        console.log('Entering to get frequency alert');
+        let response = {
+            data: {},
+            code: 500,
+            message: 'Invalid request',
+            status: false
+        }
+        try{
+            let alerts = {}
+            alerts.data = await AlertModel.findAll({where: {alert_frequency:frequency}, raw:true});
             alerts.code = 200,
             alerts.message = 'Alerts are retrieved successfully'
             alerts.status = true;
@@ -42,6 +65,7 @@ module.exports = {
     },
 
     deleteAlert: async(alertId, phone_no)=>{
+        console.log('Entering to delete alert');
         let response = {
             data: {},
             code: 500,
