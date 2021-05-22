@@ -26,11 +26,11 @@
   },
   "homepage": "https://github.com/sathishkumarece/covid19-vaccine-alert#readme",
   "dependencies": {
-    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
+    "got": "^11.8.2",
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
     "node-cron": "^3.0.0",
