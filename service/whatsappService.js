@@ -41,15 +41,19 @@ client.on('ready', () => {
 });
 
 client.on('message', async (msg) => {
-    if (msg.body === '!ping') {
-        msg.reply('pong');
-    }
+    
     if(msg.body.toLowerCase().startsWith('stop alert #')){
         const alertController = require('../controller/alertController');
         const response = await alertController.deleteAlert( Number(msg.body.split('#')[1].trim()),
         msg.from.split('@')[0]);
         console.log(JSON.stringify(response));
-        msg.reply('Alert successfully deleted');
+        if(response.status && response.data > 0){
+            msg.reply('Alert successfully deleted');
+        }else{
+            msg.reply('Something went wrong, try again later');
+        }
+    }else{
+        msg.reply('Wrong command');
     }
 });
 
