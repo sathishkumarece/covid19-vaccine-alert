@@ -1,0 +1,136 @@
+.App{
+  padding: 50px;
+}
+
+.Header{
+  text-align: center;
+  font: normal normal 600 20px/30px Poppins;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+.Info{
+  text-align: center;
+  font: normal normal normal 25px/40px Poppins;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 0.8;
+}
+
+.Sub-Info{
+  text-align: center;
+  font: normal normal normal 12px/18px Poppins;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 0.7;
+}
+
+.Form-Area{
+  background: #FAFAFA 0% 0% no-repeat padding-box;
+  box-shadow: 4px 4px 10px #EAEAEA29;
+  border: 1px solid #F2F2F2;
+  border-radius: 2px;
+  opacity: 1;
+}
+
+.Form-Header{
+  text-align: left;
+  font: normal normal normal 17px/42px Poppins;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 0.8;
+}
+
+.Form-Label{
+  text-align: left;
+  font: normal normal normal 15px/25px Poppins;
+  letter-spacing: 0px;
+  color: #666666;
+  opacity: 1;
+}
+
+.Or{
+  font-family: Poppins;
+  padding: 5px;
+  text-align:center;
+  opacity: 0.6;
+}
+
+.Or::before, .Or::after{
+  content: '-----------';
+  opacity: 0.6;
+}
+
+.Form-Collate{
+  padding-bottom: 8px;
+}
+
+.Sub-Group{
+  background: #EAEAEA29 0% 0% no-repeat padding-box;
+}
+
+.Footer-Area{
+  background: #FDF3D0 0% 0% no-repeat padding-box;
+  border: 1px solid #FCEEBD;
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.Footer-Content{
+  text-align: left;
+  letter-spacing: 0px;
+  color: #887120;
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px){
+  .App{
+    padding: 20px;
+  }
+
+  .Info{
+    padding-top: 20px;
+    font: normal normal normal 25px/35px Poppins;
+  }
+
+  .Form-Area{
+    padding-top: 20px;
+  }
+
+  .Form-Header{
+    padding: 10px 5px 5px 5px;
+    font:normal normal normal 15px/22px Poppins;
+  }
+
+  .Form{
+    padding: 10px;
+  }
+
+  .Sub-Group{
+    padding-top: 40px;
+  }
+
+}
+
+@media screen and (min-width: 767px){
+  .Info{
+    padding: 40px 100px 10px 100px
+  }
+
+  .Sub-Info, .Form-Container, .Footer-Container{
+    padding: 25px 150px 25px 150px;
+  }
+
+  .Form-Header, .Footer-Area{
+    padding: 20px;
+  }
+
+  .Form{
+    padding: 0px 50px 10px 50px;
+  }
+
+  .Sub-Group{
+    padding: 30px 10px 30px 10px;
+  }
+}
