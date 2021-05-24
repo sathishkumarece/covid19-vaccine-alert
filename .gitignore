@@ -105,3 +105,6 @@ dist
 
 #Whatsapp session files
 sessions
+
+#Ignore vscode
+.vscode/
