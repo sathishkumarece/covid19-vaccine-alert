@@ -1,17 +1,26 @@
 'use strict';
 const fs = require('fs');
 const { Client } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal')
-
+const qrcode = require('qrcode-terminal');
+const path = require('path');
 
 let sessionData;
+let headless = true;
+let puppeteer = {
+    headless
+  }
 let sessionId = 0;
 if (fs.existsSync(`${process.cwd()}/sessions/session_${sessionId}.json`)) {
     sessionData = require(`${process.cwd()}/sessions/session_${sessionId}.json`)
 }
+const chromePath = process.env.CHROME_PATH;
+if (fs.existsSync(chromePath)) {
+    puppeteer.executablePath = path.resolve(chromePath);
+}
 
 const client = new Client({
-    session: sessionData
+    session: sessionData,
+    puppeteer
 })
 
 client.on('qr', (qr) => {
