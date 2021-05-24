@@ -16,6 +16,8 @@ if (fs.existsSync(`${process.cwd()}/sessions/session_${sessionId}.json`)) {
 const chromePath = process.env.CHROME_PATH;
 if (fs.existsSync(chromePath)) {
     puppeteer.executablePath = path.resolve(chromePath);
+    puppeteer.args = ['--no-sandbox'];
+    puppeteer.ignoreHTTPSErrors = true;
 }
 
 const client = new Client({
