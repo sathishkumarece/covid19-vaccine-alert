@@ -86,7 +86,7 @@ function App() {
     }
     if(email) alertForm['email'] = email;
 
-    const res = await fetch('/create_alert',{
+    const res = await fetch('/api/create_alert',{
       method: "POST",
       headers: {
         "Content-Type": "application/json"

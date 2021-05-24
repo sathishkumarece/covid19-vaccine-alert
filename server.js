@@ -32,7 +32,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':true}));
 app.set('trust proxy', 1);
-app.use(apiLimiter);
+// app.use(apiLimiter);
 
 dotenv.config();
 
@@ -50,7 +50,8 @@ app.get('/wsm', async (req,res)=>{
     res.send('Message sent');
 })
 
-app.use('/', routes);
+//Only 5 request are allowed during 1 hour
+app.use('/api', apiLimiter ,routes);
 
 const port = process.env.PORT | 8080;
 app.listen(port, ()=>{
