@@ -20,8 +20,11 @@ client.on('qr', (qr) => {
 })
 
 client.on('authenticated', (session) => {
-    console.log(`Authenticated for client ${sessionId}`)
-    sessionData = session
+    console.log(`Authenticated for client ${sessionId}`);
+    // sessionData = session;
+    if (!fs.existsSync(`${process.cwd()}/sessions`)){
+        fs.mkdirSync(`${process.cwd()}/sessions`);
+    }
     fs.writeFile(`${process.cwd()}/sessions/session_${sessionId}.json`,
       JSON.stringify(session),
       function (err) {
