@@ -12,7 +12,7 @@
 
 .Info{
   text-align: center;
-  font: normal normal normal 25px/40px Poppins;
+  font: normal normal normal 25px/30px Poppins;
   letter-spacing: 0px;
   color: #000000;
   opacity: 0.8;
@@ -90,8 +90,21 @@
   }
 
   .Info{
+    display: none;
+  }
+  
+  .Mobile-Info{
     padding-top: 20px;
-    font: normal normal normal 25px/35px Poppins;
+    font: normal normal normal 25px/30px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 0.8;
+    text-align: center;
+    display: block;
+  }
+
+  .Sub-Info, .Form-Container, .Footer-Container{
+    padding: 15px 0px 10px 0px;
   }
 
   .Form-Area{
@@ -115,7 +128,12 @@
 
 @media screen and (min-width: 767px){
   .Info{
-    padding: 40px 100px 10px 100px
+    padding: 40px 100px 10px 100px;
+    display: block;
+  }
+
+  .Mobile-Info{
+    display: none;
   }
 
   .Sub-Info, .Form-Container, .Footer-Container{

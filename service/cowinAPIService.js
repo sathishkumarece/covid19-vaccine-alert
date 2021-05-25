@@ -7,14 +7,15 @@ module.exports = {
     getAllState : async ()=>{
         const response = await got.get(`${process.env.COWIN_BASE_URL}${process.env.COWIN_LIST_STATE}`);
         const states = JSON.parse(response.body);
-        console.log(JSON.stringify(states));
+        // console.log(JSON.stringify(states));
         return states;
     },
 
     getAllDistrictOfState : async (stateId)=>{
-        const response =await got.get(`${process.env.COWIN_BASE_URL}${process.env.COWIN_LIST_DISTRICT}`);
+        const uri = process.env.COWIN_LIST_DISTRICT.replace('${stateId}', stateId);
+        const response =await got.get(`${process.env.COWIN_BASE_URL}${uri}`);
         const district = JSON.parse(response.body);
-        console.log(JSON.stringify(district));
+        // console.log(JSON.stringify(district));
         return district;
     },
 

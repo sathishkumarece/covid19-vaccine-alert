@@ -50,6 +50,8 @@ app.get('/wsm', async (req,res)=>{
     res.send('Message sent');
 })
 
+app.use('/location', routes)
+
 //Only 5 request are allowed during 1 hour
 app.use('/api', apiLimiter ,routes);
 

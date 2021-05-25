@@ -39,7 +39,7 @@ function App() {
   },[]);
 
   const getStates = async ()=>{
-    const res = await fetch('https://cdn-api.co-vin.in/api/v2/admin/location/states', {
+    const res = await fetch('/location/states', {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -50,7 +50,7 @@ function App() {
   }
 
   const getAllDistrictOfState = async (stateId) => {
-    const res = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${stateId}`, {
+    const res = await fetch(`/location/districts/${stateId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -119,9 +119,10 @@ function App() {
   return (
     <div className="App">
       <header>
-        <div className="Header">Covid-19 Vaccine Alert</div>
-        <div className="Info">Exposure Notifications: Using technology to help public health authorities fight COVID‑19</div>
-        <div className="Sub-Info">The benefits of Vaccine tracing :Contact tracing is a technique used by public health authorities to contact and give guidance to anyone who may have been exposed to a person who has contracted COVID-19.</div>
+        <div className="Header">Covid-19 Vaccine Live Alert</div>
+        <div className="Info">Early vaccination will avoid the potential risk of COVID-19 infection in you. Vaccination will ensure better safety for you and those around you, acting as a shield of protection for all your loved ones.</div>
+        <div className="Mobile-Info">Early vaccination will avoid the potential risk of COVID-19 infection in you.</div>
+        <div className="Sub-Info">With a motive to support Indian citizens during this difficult COVID situation, we had developed this application, a non-profit web-site to help you in live tracking the vaccine availability @ your area. You will receive an instantaneous alert on your WhatsApp number. Till then STAY HOME. STAY SAFE.</div>
       </header>
       <section className="Form-Container">
           <div className="Form-Area">
