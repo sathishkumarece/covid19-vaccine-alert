@@ -8,6 +8,7 @@ module.exports = {
         const response = await got.get(`${process.env.COWIN_BASE_URL}${process.env.COWIN_LIST_STATE}`);
         const states = JSON.parse(response.body);
         // console.log(JSON.stringify(states));
+        console.log('States: ', states.length);
         return states;
     },
 
@@ -16,17 +17,19 @@ module.exports = {
         const response =await got.get(`${process.env.COWIN_BASE_URL}${uri}`);
         const district = JSON.parse(response.body);
         // console.log(JSON.stringify(district));
+        console.log('Disticts: ',district.length);
         return district;
     },
 
     getAppointmentCalendarByPin : async (pincode, date)=>{
-        console.log(`Entering appointment by district with value ${pincode} and ${date}`);
+        console.log(`Entering appointment by pincode with value ${pincode} and ${date}`);
         let apiURL = process.env.COWIN_CALENDAR_BY_PIN.replace('${pincode}', pincode).replace('${date}', date);
         let appointmentCalendarbyPin = [];
         try {
             const response =await got.get(`${process.env.COWIN_BASE_URL}${apiURL}`);
             appointmentCalendarbyPin = JSON.parse(response.body);
             // console.log(JSON.stringify(appointmentCalendarbyPin));
+            console.log('CentersByPin: ', appointmentCalendarbyPin.length);
         } catch(error) {
             console.error(error);
         }
@@ -41,6 +44,7 @@ module.exports = {
             const response = await got.get(`${process.env.COWIN_BASE_URL}${apiURL}`);
             appointmentCalendarbyDistrict = JSON.parse(response.body);
             // console.log(JSON.stringify(appointmentCalendarbyDistrict));
+            console.log('CentersByDistrict: ', appointmentCalendarbyDistrict.length);
         } catch(error) {
             console.error(error);
         }
