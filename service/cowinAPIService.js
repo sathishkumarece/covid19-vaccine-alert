@@ -29,7 +29,7 @@ module.exports = {
             const response =await got.get(`${process.env.COWIN_BASE_URL}${apiURL}`);
             appointmentCalendarbyPin = JSON.parse(response.body);
             // console.log(JSON.stringify(appointmentCalendarbyPin));
-            console.log('CentersByPin: ', appointmentCalendarbyPin.length);
+            console.log('CentersByPin: ', appointmentCalendarbyPin.centers.length);
         } catch(error) {
             console.error(error);
         }
@@ -44,7 +44,7 @@ module.exports = {
             const response = await got.get(`${process.env.COWIN_BASE_URL}${apiURL}`);
             appointmentCalendarbyDistrict = JSON.parse(response.body);
             // console.log(JSON.stringify(appointmentCalendarbyDistrict));
-            console.log('CentersByDistrict: ', appointmentCalendarbyDistrict.length);
+            console.log('CentersByDistrict: ', appointmentCalendarbyDistrict.centers.length);
         } catch(error) {
             console.error(error);
         }
