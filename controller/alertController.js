@@ -2,6 +2,7 @@
 const db = require('../model');
 const AlertModel = db.alert;
 const Op = db.Sequelize.Op;
+const client = require('../service/whatsappService');
 
 module.exports = {
     createAlert : async (req, res)=>{
@@ -13,12 +14,19 @@ module.exports = {
             message: 'Invalid request',
             status: false
         }
-        try{
-            response = await alertCreation(body);
-            res.status(response.code).json(response);
-        }catch (err){
-            console.error(err)
-            res.status(response.code).json({...response, message: "Error occured during alert creation"});
+        const is = await client.isRegisteredUser(body.phone_no + '@c.us')
+        if(!is){
+            res.status(response.code).json({...response, message: "Invalid whatsapp number"});
+        }else{
+            try{
+                response = await alertCreation(body);
+                console.log(`Sending confirmation message to ${body.phone_no}`);
+                client.sendMessage(`${body.phone_no}@c.us`, `Covid19 vaccine alert registration is successful. Alert number #${response.data.id}`);
+                res.status(response.code).json(response);
+            }catch (err){
+                console.error(err)
+                res.status(response.code).json({...response, message: "Error occured during alert creation"});
+            }
         }
     
     },

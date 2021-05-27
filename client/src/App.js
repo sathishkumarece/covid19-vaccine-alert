@@ -26,7 +26,7 @@ function App() {
   const [doseType, setDoseType] = useState('');
   const [dayRange, setDayRange] = useState('');
   const [frequency, setFrequency] = useState('');
-  const [phoneNo, setPhoneNo] = useState('');
+  const [phoneNo, setPhoneNo] = useState('91');
   const [email, setEmail] = useState('');
 
   useEffect(()=>{
@@ -206,9 +206,10 @@ function App() {
                     onChange={(e) => {
                       setVaccineName(e.target.value); 
                         }} >
-                    <option value=""></option>
+                    <option value="">Any</option>
                     <option value="covidshield">COVIDSHIELD</option>
                     <option value="covaxin">COVAXIN</option>
+                    <option value="sputnik v">SPUTNIK V</option>
                   </select>
                 </FormGroup>
                 </Col><Col md={6}>
@@ -218,7 +219,7 @@ function App() {
                     onChange={(e) => { 
                       setAge(e.target.value);
                         }} >
-                    <option value=""></option>
+                    <option value="">Any</option>
                     <option value="18">18+</option>
                     <option value="45">45+</option>
                   </select>
@@ -233,7 +234,7 @@ function App() {
                     onChange={(e) => { 
                       setFeeType(e.target.value);
                         }} >
-                    <option value=""></option>
+                    <option value="">Any</option>
                     <option value="Free">Free</option>
                     <option value="Paid">Paid</option>
                   </select>
@@ -245,7 +246,7 @@ function App() {
                     onChange={(e) => { 
                       setDoseType(e.target.value);
                         }} >
-                    <option value=""></option>
+                    <option value="">Any</option>
                     <option value="1">1st Dose</option>
                     <option value="2">2nd Dose</option>
                   </select>
@@ -285,8 +286,8 @@ function App() {
                     <FormGroup className="Form-Collate">
                       <Label for="phoneNo" className="Form-Label">Whatsapp No</Label>
                       <Validator id="phoneNo" type="text" className="form-control" value={phoneNo}
-                          validators={['required', 'isNumber']}
-                          errorMessages={['This field is required', 'Only digits are allowed']}
+                          validators={['required', 'isNumber', 'minStringLength:11']}
+                          errorMessages={['This field is required', 'Only digits are allowed', 'Country code is mandatory']}
                           onChange={(e) => { 
                               setPhoneNo(e.target.value);
                               }} >
@@ -294,7 +295,7 @@ function App() {
                       <FormText>Add country code at beginning without special characters</FormText>
                     </FormGroup>
                   </Col>
-                  <Col md={6}>
+                  <Col md={6} style={{'display': 'none'}}>
                     <FormGroup className="Form-Collate">
                        <Label for="email" className="Form-Label">Email Address</Label>
                        <Validator id="email" type="text" className="form-control" value={email}
@@ -314,7 +315,7 @@ function App() {
       </section>
       <footer className="Footer-Container">
           <div className="Footer-Area">
-              <div className="Footer-Content"><strong>NOTE:</strong> Whatsapp number collected only for sending covid vaccine related alerts. This number willn't be shared with anyone. In case of any support required please send email to covid.vaccine.alert.19@gmail.com</div>
+              <div className="Footer-Content"><strong>NOTE:</strong> Your privacy is our responsibility. Whatsapp number collected will not be commercialized or shared with any. In case of any clarification or support, feel free to contact us on covid.vaccine.alert.19@gmail.com</div>
           </div>
       </footer>
     </div>
