@@ -207,7 +207,7 @@ function App() {
                       setVaccineName(e.target.value); 
                         }} >
                     <option value="">Any</option>
-                    <option value="covidshield">COVIDSHIELD</option>
+                    <option value="covishield">COVISHIELD</option>
                     <option value="covaxin">COVAXIN</option>
                     <option value="sputnik v">SPUTNIK V</option>
                   </select>
