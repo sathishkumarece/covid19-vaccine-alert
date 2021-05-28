@@ -71,7 +71,7 @@ function App() {
       alertForm['district'] = Number(district);
     }
     if(vaccineName) alertForm['vaccine_name'] = vaccineName;
-    if(age) alertForm['age'] = Number(age);
+    if(age) alertForm['min_age'] = Number(age);
     if(feeType) alertForm['fee_type'] = feeType;
     if(doseType) alertForm['dose_type'] = Number(doseType);
     if(dayRange) {
@@ -168,7 +168,7 @@ function App() {
                         }} >
                     <option value=""></option>
                     {states.length > 0 && states.map((item, key)=>{
-                      console.log(item.state_id)
+                      // console.log(item.state_id)
                     return (
                         <option key={key} value={item.state_id}>{item.state_name}</option>
                         )
