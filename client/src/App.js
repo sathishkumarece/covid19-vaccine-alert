@@ -77,7 +77,7 @@ function App() {
     if(dayRange) {
       alertForm['day_range'] = Number(dayRange);
     }else{
-      alertForm['day_range'] = 1;
+      alertForm['day_range'] = 2;
     };
     if(frequency) {
       alertForm['alert_frequency'] = Number(frequency);
