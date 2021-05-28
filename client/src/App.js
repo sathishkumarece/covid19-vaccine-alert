@@ -138,7 +138,7 @@ function App() {
                     <Validator id="pincode" type="text" className="form-control" value={pincode}
                         disabled={state}
                         validators={!state && ['required', 'isNumber', 'minStringLength:6', 'maxStringLength:6']}
-                        errorMessages={!state && ['This field is required', 'Only digits are allowed', '6 digit code is allowed', '6 digit code is allowed']}
+                        errorMessages={!state && ['This field is required', 'Only digits are allowed', '6 digit valid pincode is allowed', '6 digit valid pincode is allowed']}
                         onChange={(e) => { 
                             setPincode(e.target.value);
                             setState();
@@ -254,7 +254,7 @@ function App() {
                 </Col>
               </Row>
               <Row>
-                <Col md={6}>
+                {/* <Col md={6}>
                 <FormGroup className="Form-Collate">
                   <Label for="dayRange" className="Form-Label">Slot Range</Label>
                   <select id="dayRange" type="text" className="form-control" value={dayRange}
@@ -266,9 +266,10 @@ function App() {
                   </select>
                   <FormText>Next availability date range</FormText>
                 </FormGroup>
-                </Col><Col md={6}>
+                </Col> */}
+                <Col md={6}>
                 <FormGroup className="Form-Collate">
-                  <Label for="frequency" className="Form-Label">Alert Frequency</Label>
+                  <Label for="frequency" className="Form-Label">Reminder Frequency</Label>
                   <select id="frequency" type="text" className="form-control" value={frequency}
                     onChange={(e) => { 
                       setFrequency(e.target.value);
@@ -280,14 +281,12 @@ function App() {
                   <FormText>Frequency to trigger alert</FormText>
                 </FormGroup>
                 </Col>
-              </Row>
-              <Row>
                 <Col md={6}>
                     <FormGroup className="Form-Collate">
                       <Label for="phoneNo" className="Form-Label">Whatsapp No</Label>
                       <Validator id="phoneNo" type="text" className="form-control" value={phoneNo}
                           validators={['required', 'isNumber', 'minStringLength:11']}
-                          errorMessages={['This field is required', 'Only digits are allowed', 'Country code is mandatory']}
+                          errorMessages={['This field is required', 'Only digits are allowed', 'Valid phone number with country code is mandatory']}
                           onChange={(e) => { 
                               setPhoneNo(e.target.value);
                               }} >
@@ -295,6 +294,8 @@ function App() {
                       <FormText>Add country code at beginning without special characters</FormText>
                     </FormGroup>
                   </Col>
+              </Row>
+              <Row>
                   <Col md={6} style={{'display': 'none'}}>
                     <FormGroup className="Form-Collate">
                        <Label for="email" className="Form-Label">Email Address</Label>
