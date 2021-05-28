@@ -316,7 +316,7 @@ function App() {
       </section>
       <footer className="Footer-Container">
           <div className="Footer-Area">
-              <div className="Footer-Content"><strong>NOTE:</strong> Your privacy is our responsibility. Whatsapp number collected will not be commercialized or shared with any. In case of any clarification or support, feel free to contact us on covid.vaccine.alert.19@gmail.com</div>
+              <div className="Footer-Content"><strong>NOTE:</strong> Your privacy is our responsibility. Whatsapp number collected will not be commercialized or shared with any. In case of any clarification or support, feel free to contact us on covidvaccinealert19@gmail.com</div>
           </div>
       </footer>
     </div>
