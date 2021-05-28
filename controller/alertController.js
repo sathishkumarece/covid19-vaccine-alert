@@ -24,12 +24,12 @@ module.exports = {
                 console.log(`Sending confirmation message to ${body.phone_no}`);
                 const vaccineName = response.data.vaccine_name ? response.data.vaccine_name : 'Any';
                 const feeType = response.data.fee_type ? response.data.fee_type : 'Any';
-                const doseType = response.data.dose_type ? response.data.dose_type : 'Any';
+                const doseType = response.data.dose_type ? response.data.dose_type + '+' : 'Any';
                 const alertFrequency = response.data.alert_frequency === 24 ? 'Once a day' : response.data.alert_frequency === 3 ? '3 hours' : '6 hours';
                 const minAge = response.data.min_age ? response.data.min_age : 'Any';
                 client.sendMessage(`${body.phone_no}@c.us`, `Thanks for your enrollment. It's pleasure to serve you. Your alert number is #${response.data.id} and you had been enrolled for ${os.EOL}
                 Vaccine Type: ${vaccineName}
-                Age Limit: ${minAge}+
+                Age Limit: ${minAge}
                 Fee Type: ${feeType}
                 Dose: ${doseType}
                 Reminder Frequency: ${alertFrequency}
