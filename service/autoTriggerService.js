@@ -105,19 +105,21 @@ function processAlerts(allAlerts, allCenters){
                         for(let session of center.sessions){
                             if(count < alert.day_range){
                                 if(alert.dose_type === null && alert.vaccine_name === null && 
-                                    alert.min_age === null){
-                                        sessionVal+=messageUtil.getSessionInfo(session) + os.EOL
+                                    alert.min_age === null && session.available_capacity > 0){
+                                        sessionVal+=messageUtil.getSessionInfo(session) + os.EOL;
+                                        count++;
+
                                 }else{
                                     const dose = `available_capacity_dose${alert.dose_type}`
-                                    if(((alert.dose_type && session[dose] > 0) || alert.dose_type === null) && 
+                                    if(((alert.dose_type && session[dose] > 0) || (alert.dose_type === null && session.available_capacity > 0)) && 
                                         ((alert.vaccine_name === null && alert.min_age === null) || 
                                             (alert.vaccine_name === null && alert.min_age === session.min_age_limit) || 
-                                            (alert.vaccine_name.toUpperCase() === session.vaccine && alert.min_age === null) || 
-                                            (alert.vaccine_name.toUpperCase() === session.vaccine && alert.min_age === session.min_age_limit))){
-                                                sessionVal+=messageUtil.getSessionInfo(session) + os.EOL
+                                            (alert.vaccine_name && alert.vaccine_name.toUpperCase() === session.vaccine && alert.min_age === null) || 
+                                            (alert.vaccine_name && alert.vaccine_name.toUpperCase() === session.vaccine && alert.min_age === session.min_age_limit))){
+                                                sessionVal+=messageUtil.getSessionInfo(session) + os.EOL;
+                                                count++;
                                     }
                                 }
-                                count++;
                             }else{
                                 break;
                             }
@@ -136,5 +138,5 @@ function processAlerts(allAlerts, allCenters){
 
 function sendMessage (message, phone_no){
     console.log(`Sending message to ${phone_no}`);
-    client.sendMessage(`${phone_no}@c.us`, message);
+    // client.sendMessage(`${phone_no}@c.us`, message);
 }
