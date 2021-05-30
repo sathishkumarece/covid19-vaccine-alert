@@ -138,5 +138,5 @@ function processAlerts(allAlerts, allCenters){
 
 function sendMessage (message, phone_no){
     console.log(`Sending message to ${phone_no}`);
-    // client.sendMessage(`${phone_no}@c.us`, message);
+    client.sendMessage(`${phone_no}@c.us`, message);
 }
