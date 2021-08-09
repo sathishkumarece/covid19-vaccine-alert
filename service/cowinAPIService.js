@@ -24,7 +24,7 @@ module.exports = {
     getAppointmentCalendarByPin : async (pincode, date)=>{
         console.log(`Entering appointment by pincode with value ${pincode} and ${date}`);
         let apiURL = process.env.COWIN_CALENDAR_BY_PIN.replace('${pincode}', pincode).replace('${date}', date);
-        let appointmentCalendarbyPin = [];
+        let appointmentCalendarbyPin = {};
         try {
             const response =await got.get(`${process.env.COWIN_BASE_URL}${apiURL}`);
             appointmentCalendarbyPin = JSON.parse(response.body);
@@ -39,7 +39,7 @@ module.exports = {
     getAppointmentCalendarByDistrict : async (districtId, date)=>{
         console.log(`Entering appointment by district with value ${districtId} and ${date}`);
         let apiURL = process.env.COWIN_CALENDAR_BY_DISTRICT.replace('${districtId}', districtId).replace('${date}', date);
-        let appointmentCalendarbyDistrict = [];
+        let appointmentCalendarbyDistrict = {};
         try {
             const response = await got.get(`${process.env.COWIN_BASE_URL}${apiURL}`);
             appointmentCalendarbyDistrict = JSON.parse(response.body);

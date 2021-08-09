@@ -67,15 +67,17 @@ async function getAvailableVaccineData(alertsMap, type){
         }
 
         //center will be eligible only atleast of the session holds vaccine availability
-        centers = centers.centers.filter(center => {
-            for(let session of center.sessions){
-                if(session.available_capacity > 0){
-                    return true;
+        if(centers && centers.hasOwnProperty('centers')){
+            centers = centers.centers.filter(center => {
+                for(let session of center.sessions){
+                    if(session.available_capacity > 0){
+                        return true;
+                    }
                 }
-            }
-            return false;
-        })
-        centersMap.set(key, centers)
+                return false;
+            })
+            centersMap.set(key, centers)
+        }
     }
     return centersMap;
 }
