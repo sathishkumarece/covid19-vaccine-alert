@@ -51,8 +51,12 @@ async function getAlertsBasedCenters(frequency){
         const districtCenters = await getAvailableVaccineData(districtAlerts,'district');
         const pincodeCenters = await getAvailableVaccineData(pincodeAlerts,'pincode');
 
-        processAlerts(districtAlerts,districtCenters);
-        processAlerts(pincodeAlerts,pincodeCenters);
+        const messages = [];
+        messages.push(...processAlerts(districtAlerts,districtCenters));
+        messages.push(...processAlerts(pincodeAlerts,pincodeCenters));
+
+        //Process the whatsapp messages
+        sendMessage(messages);
     }
 }
 
@@ -95,6 +99,7 @@ function dateFormat(date){
 }
 
 function processAlerts(allAlerts, allCenters){
+    const messages = [];
     for(let [key, alerts] of allAlerts.entries()){
         for(let alert of alerts){
             if(allCenters.has(key)){
@@ -129,16 +134,30 @@ function processAlerts(allAlerts, allCenters){
                         const header = 'Vaccine Availability Alert'
                         const footer = `To unsubscribe send "Stop Alert #${alert.id}"`;
                         if(sessionVal){
-                            sendMessage(header+os.EOL+messageUtil.getCenterInfo(center)+os.EOL+'Sessions: '+os.EOL+sessionVal+os.EOL+footer, alert.phone_no);
+                            // sendMessage(header+os.EOL+messageUtil.getCenterInfo(center)+os.EOL+'Sessions: '+os.EOL+sessionVal+os.EOL+footer, alert.phone_no);
+                            messages.push({
+                                message: header+os.EOL+messageUtil.getCenterInfo(center)+os.EOL+'Sessions: '+os.EOL+sessionVal+os.EOL+footer,
+                                phone_no:alert.phone_no})
                         }
                     }
                 }
             }
         }
     }
+    return messages;
 }
 
-function sendMessage (message, phone_no){
-    console.log(`Sending message to ${phone_no}`);
-    client.sendMessage(`${phone_no}@c.us`, message);
+function sendMessage (messages){
+    const interval = setInterval(processMessage,process.env.TIME_DIFF);
+    function processMessage(){
+        let limit = messages.length < Number(process.env.MESSAGE_LIMIT) ? messages.length : Number(process.env.MESSAGE_LIMIT);
+        let splitMsgs = messages.splice(0,limit);
+        for(let msg of splitMsgs){
+            console.log(`Sending message to ${msg.phone_no}`);
+            client.sendMessage(`${msg.phone_no}@c.us`, msg.message);
+        }
+        if(messages.length === 0){
+            clearInterval(interval)
+        }
+    }
 }
