@@ -24,7 +24,7 @@ function App() {
   const [age, setAge] = useState('');
   const [feeType, setFeeType] = useState('');
   const [doseType, setDoseType] = useState('');
-  const [dayRange, setDayRange] = useState('');
+  // const [dayRange, setDayRange] = useState('');
   const [frequency, setFrequency] = useState('');
   const [phoneNo, setPhoneNo] = useState('91');
   const [email, setEmail] = useState('');
@@ -74,11 +74,11 @@ function App() {
     if(age) alertForm['min_age'] = Number(age);
     if(feeType) alertForm['fee_type'] = feeType;
     if(doseType) alertForm['dose_type'] = Number(doseType);
-    if(dayRange) {
-      alertForm['day_range'] = Number(dayRange);
-    }else{
-      alertForm['day_range'] = 2;
-    };
+    // if(dayRange) {
+    //   alertForm['day_range'] = Number(dayRange);
+    // }else{
+    //   alertForm['day_range'] = 2;
+    // };
     if(frequency) {
       alertForm['alert_frequency'] = Number(frequency);
     }else{

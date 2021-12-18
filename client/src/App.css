@@ -104,7 +104,8 @@
   }
 
   .Sub-Info, .Form-Container, .Footer-Container{
-    padding: 15px 0px 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
   }
 
   .Form-Area{
@@ -145,7 +146,8 @@
   }
 
   .Form{
-    padding: 0px 50px 10px;
+    padding-right: 50px;
+    padding-bottom: 10px;
   }
 
   .Sub-Group{
