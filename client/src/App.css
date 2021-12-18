@@ -5,7 +5,7 @@
 .Header{
   text-align: center;
   font: normal normal 600 20px/30px Poppins;
-  letter-spacing: 0px;
+  /* letter-spacing: 0px; */
   color: #000000;
   opacity: 1;
 }
@@ -13,7 +13,7 @@
 .Info{
   text-align: center;
   font: normal normal normal 25px/30px Poppins;
-  letter-spacing: 0px;
+  /* letter-spacing: 0px; */
   color: #000000;
   opacity: 0.8;
 }
@@ -21,7 +21,7 @@
 .Sub-Info{
   text-align: center;
   font: normal normal normal 12px/18px Poppins;
-  letter-spacing: 0px;
+  /* letter-spacing: 0px; */
   color: #000000;
   opacity: 0.7;
 }
@@ -37,7 +37,7 @@
 .Form-Header{
   text-align: left;
   font: normal normal normal 17px/42px Poppins;
-  letter-spacing: 0px;
+  /* letter-spacing: 0px; */
   color: #000000;
   opacity: 0.8;
 }
@@ -45,7 +45,7 @@
 .Form-Label{
   text-align: left;
   font: normal normal normal 15px/25px Poppins;
-  letter-spacing: 0px;
+  /* letter-spacing: 0px; */
   color: #666666;
   opacity: 1;
 }
@@ -79,7 +79,7 @@
 
 .Footer-Content{
   text-align: left;
-  letter-spacing: 0px;
+  /* letter-spacing: 0px; */
   color: #887120;
   opacity: 1;
 }
@@ -96,7 +96,7 @@
   .Mobile-Info{
     padding-top: 20px;
     font: normal normal normal 25px/30px Poppins;
-    letter-spacing: 0px;
+    /* letter-spacing: 0px; */
     color: #000000;
     opacity: 0.8;
     text-align: center;
@@ -104,7 +104,7 @@
   }
 
   .Sub-Info, .Form-Container, .Footer-Container{
-    padding: 15px 0px 10px 0px;
+    padding: 15px 0px 10px;
   }
 
   .Form-Area{
@@ -112,7 +112,7 @@
   }
 
   .Form-Header{
-    padding: 10px 5px 5px 5px;
+    padding: 10px 5px 5px;
     font:normal normal normal 15px/22px Poppins;
   }
 
@@ -128,7 +128,7 @@
 
 @media screen and (min-width: 767px){
   .Info{
-    padding: 40px 100px 10px 100px;
+    padding: 40px 100px 10px;
     display: block;
   }
 
@@ -137,7 +137,7 @@
   }
 
   .Sub-Info, .Form-Container, .Footer-Container{
-    padding: 25px 150px 25px 150px;
+    padding: 25px 150px;
   }
 
   .Form-Header, .Footer-Area{
@@ -145,10 +145,10 @@
   }
 
   .Form{
-    padding: 0px 50px 10px 50px;
+    padding: 0px 50px 10px;
   }
 
   .Sub-Group{
-    padding: 30px 10px 30px 10px;
+    padding: 30px 10px;
   }
 }

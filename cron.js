@@ -12,12 +12,12 @@ const task = cron.schedule('00 6,9,12,15,18 * * *', () => {
 });
 task.start();
 
-const sdTask = cron.schedule('00 03 * * *', () => {
-    console.log('cronjob started for state and district...');
-    stateDistrictService.stateAndDistrictManagement();
-}, {
-    scheduled: false,
-    timezone: "Asia/kolkata"
-});
+// const sdTask = cron.schedule('00 03 * * *', () => {
+//     console.log('cronjob started for state and district...');
+//     stateDistrictService.stateAndDistrictManagement();
+// }, {
+//     scheduled: false,
+//     timezone: "Asia/kolkata"
+// });
 // sdTask.start();
 

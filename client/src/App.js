@@ -24,7 +24,7 @@ function App() {
   const [age, setAge] = useState('');
   const [feeType, setFeeType] = useState('');
   const [doseType, setDoseType] = useState('');
-  const [dayRange, setDayRange] = useState('');
+  // const [dayRange, setDayRange] = useState('');
   const [frequency, setFrequency] = useState('');
   const [phoneNo, setPhoneNo] = useState('91');
   const [email, setEmail] = useState('');
